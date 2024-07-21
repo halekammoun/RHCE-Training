@@ -35,14 +35,14 @@ Rejoignez-nous dans cette aventure et devenez un ingénieur certifié Red Hat ! 
 
 ## Table des Matières
 <ol id="table-des-matieres" style="list-style-type: decimal; margin-left: 20px;">
-  <li><a href="introduction-ansible-et-setup-environnement.md">Introduction à Ansible et Setup de l'Environnement</a></li>
-  <li><a href="les-commandes-adhocs.md">Les Commandes Ad-Hoc</a></li>
-  <li><a href="les-playbooks-et-les-modules.md">Les Playbooks et les Modules</a></li>
-  <li><a href="variable-facts-et-variables-magiques.md">Variables, Facts et Variables Magiques</a></li>
-  <li><a href="ansible-vault.md">Ansible Vault</a></li>
-  <li><a href="conditions-et-loops.md">Conditions et Boucles</a></li>
-  <li><a href="task-handlers-et-error-handlers.md">Task Handlers et Error Handlers</a></li>
-  <li><a href="ansible-galaxy.md">Ansible Galaxy</a></li>
-  <li><a href="roles-et-rhel-system-roles.md">Rôles et RHEL System Roles</a></li>
-  <li><a href="gestion-de-stockage-avec-ansible.md">Gestion du Stockage avec Ansible</a></li>
+  <li><a href="01-introduction-ansible-et-setup-environnement.md">Introduction à Ansible et Setup de l'Environnement</a></li>
+  <li><a href="02-les-commandes-adhocs.md">Les Commandes Ad-Hoc</a></li>
+  <li><a href="03-les-playbooks-et-les-modules.md">Les Playbooks et les Modules</a></li>
+  <li><a href="04-variable-facts-et-variables-magiques.md">Variables, Facts et Variables Magiques</a></li>
+  <li><a href="05-ansible-vault.md">Ansible Vault</a></li>
+  <li><a href="06-conditions-et-loops.md">Conditions et Boucles</a></li>
+  <li><a href="07-task-handlers-et-error-handlers.md">Task Handlers et Error Handlers</a></li>
+  <li><a href="08-ansible-galaxy.md">Ansible Galaxy</a></li>
+  <li><a href="09-roles-et-rhel-system-roles.md">Rôles et RHEL System Roles</a></li>
+  <li><a href="10-gestion-de-stockage-avec-ansible.md">Gestion du Stockage avec Ansible</a></li>
 </ol>
