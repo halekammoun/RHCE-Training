@@ -6,7 +6,7 @@
 ## Qu'est-ce qu'Ansible ?
 Ansible est un outil d'automatisation qui facilite la gestion des serveurs et des applications. Il est "sans agent", ce qui signifie qu'il n'a pas besoin d'un logiciel spécial installé sur les machines que vous gérez. Il est populaire parce qu'il est simple à utiliser, efficace, et utilise des fichiers YAML faciles à comprendre.
 <p align="center">
-  <img src="images/Capture.JPG" alt="cap" style="width: 800px;"/>
+  <img src="images/Capture.JPG" alt="cap" style="width: 400px;"/>
 </p>  
 
 ## Architecture d'Ansible
@@ -36,7 +36,7 @@ Ansible communique avec les serveurs cibles en utilisant SSH, sans nécessiter d
 
 ## Étapes de Configuration
 <p align="center">
-  <img src="images/ansible.png" alt="cap" style="width: 800px;"/>
+  <img src="images/ansible.png" alt="cap" style="width: 600px;"/>
 </p>  
 
 ### 1. Prérequis
