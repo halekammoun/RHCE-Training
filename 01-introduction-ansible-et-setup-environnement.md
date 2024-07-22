@@ -60,16 +60,16 @@ passwd ansible
 ```
 ```bash
 vim /etc/sudoers.d/ansible
-ansible     ALL=(ALL) 	NOPASSWD:ALL
+ansible     ALL=(ALL) 	NOPASSWD: ALL
 ```
 
 NB: avant de commencer, vous pouvez nommer les machines comme suit.
 
 ```bash
 vim /etc/hosts
-control-node son@ip
-target-node1 son@ip
-target-node2 son@ip
+son@ip control-node1
+son@ip target-node1
+son@ip target-node2 
 
 ```
 ### 4. configurer la connexion ssh sans mot de passe depuis le control node en tant que remote user vers les 2 machines.
@@ -77,16 +77,16 @@ target-node2 son@ip
 ssh ansible@localhost
 ssh-keygen
 ls .ssh
-ssh-copy-id root@target-node1
-ssh-copy-id root@target-node2
+ssh-copy-id ansible@target-node1
+ssh-copy-id ansible@target-node2
 ```
 ### 5. ajouter le fichier inventaire sous le control node
 ```bash
 [group1]
-client-node1
+target-node1
 
 [group2]
-client-node2
+target-node2
 ```
 ### 6. ajouter le fichier ansible.cfg sous le control node
 ```bash
@@ -99,20 +99,12 @@ become=true
 
 ### 7. tester la connexion ssh sans mot de passe en restant en tant que remote user
 ```bash
-ssh root@target-node1
+ssh ansible@target-node1
 ```
-NB: si vous aurez la probléme Permission denied ajouter ces trois paramétre dans le fichier de configuration /etc/ssh/sshd_config et 
-```bash
-PermitRootLogin yes
-PasswordAuthentication yes
-PubkeyAuthentication yes
-```
-```bash
-systemctl restart sshd
-```
+
 ### 5. tester la connexion ansible
 ```bash
-ansible client-node1 -m ping
+ansible target-node1 -m ping
 ```
 
 
