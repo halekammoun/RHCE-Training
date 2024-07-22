@@ -89,9 +89,11 @@ client-node1
 client-node2
 ```
 ### 6. ajouter le fichier ansib sous le control node
+```bash
 [defaults]
 remote_user=ansible
 inventory=/home/ansible/inventory
+```
 
 ### 7. tester la connexion ssh sans mot de passe en restant en tant que remote user
 ```bash
