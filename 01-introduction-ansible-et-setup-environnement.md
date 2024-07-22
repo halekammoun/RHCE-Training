@@ -77,8 +77,8 @@ target-node2 son@ip
 ssh ansible@localhost
 ssh-keygen
 ls .ssh
-ssh-copy-id target-node1
-ssh-copy-id target-node2
+ssh-copy-id root@target-node1
+ssh-copy-id root@target-node2
 ```
 ### 5. ajouter le fichier inventaire sous le control node
 ```bash
@@ -88,11 +88,13 @@ client-node1
 [group2]
 client-node2
 ```
-### 6. ajouter le fichier ansib sous le control node
+### 6. ajouter le fichier ansible.cfg sous le control node
 ```bash
 [defaults]
 remote_user=ansible
 inventory=/home/ansible/inventory
+[privilege_escalation]
+become=true
 ```
 
 ### 7. tester la connexion ssh sans mot de passe en restant en tant que remote user
