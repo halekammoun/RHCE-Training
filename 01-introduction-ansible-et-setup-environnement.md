@@ -43,6 +43,7 @@ Ansible communique avec les serveurs cibles en utilisant SSH, sans nécessiter d
 ### 1. Prérequis
 Avant de commencer, assurez-vous d'avoir :
 - 3 machines virtuels (1 control node & 2 target nodes) ayant les système Red Hat Enterprise Linux ou CentOS installé.
+https://www.mediafire.com/file/vckh650ljsd9vjd/RHEL9.zip/file
 - le paquet python3 est installé sur les 3 machines.
 ```bash
 yum install python3
