@@ -38,7 +38,7 @@
 
 ``` bash
 - name: ajouter alice te modifier bob
-  hosts: node1
+  hosts: all
   become: true
   tasks:
   - name: ajouter alice
@@ -62,7 +62,7 @@
 ``` bash
 
 - name: supprimer charlie
-  hosts: node1
+  hosts: all
   become: true
   tasks:
   - name: delete
@@ -75,14 +75,20 @@
 
 
 ``` bash
-- name: supprimer charlie
-  hosts: node1
+- name: install and strat service httpd
+  hosts: all
   become: true
   tasks:
-  - name: delete
-    user:
-      name: charlie
-      state: absent
+  - name: install httpd
+    yum:
+      name: httpd
+      state: latest
+  - name: start httpd
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+
 ```
 
 #### Q3. Utilisez un playbook Ansible pour ajouter une ligne au fichier /etc/hosts sur toutes les machines hôtes. La ligne à ajouter est '10.0.0.1 myserver'.
