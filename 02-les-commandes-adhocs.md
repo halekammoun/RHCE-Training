@@ -81,7 +81,7 @@ ansible all -m group -a "name=developers  gid=2002 state=present"
 10. Module `user`
 exemple: ajouter un utilisateur
 ``` bash
-ansible all -m group -a "name=developer uid=2001 state=present"
+ansible all -m user -a "name=developer uid=2001 state=present"
 ```
 ### LAB 01
 #### Q0. Exécutez une commande ad hoc pour ajouter un utilisateur nommé « lisa » puis observez la sortie de la commande en utilisant la commande ad-hoc
