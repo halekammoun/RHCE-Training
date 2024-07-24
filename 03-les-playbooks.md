@@ -175,7 +175,8 @@ NB: on utilise plusieurs plays pour qu'on puisse exécuter les plays dans diffé
 <p style="text-align: right;">
   <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/05-gestion-services.md">Lire service httpd de cours RHCSA</a>
 </p>
-```bash 
+
+```bash
 - hosts: all  
   become: true
   tasks:      
@@ -212,6 +213,5 @@ NB: on utilise plusieurs plays pour qu'on puisse exécuter les plays dans diffé
   - name: webpage test
     uri:
       url: http://node1
-
 
 ```
