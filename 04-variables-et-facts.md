@@ -145,3 +145,6 @@ Then edit the lines in the file to provide the real information of the hosts. If
      when: "'sdb' not in  ansible_devices "
 
 ```
+
+# Demain est férié. Profitez bien 😊
+# Tous les entraînements vont continuer vendredi, on va pas faire une séance en ligne 
