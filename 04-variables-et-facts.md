@@ -90,4 +90,58 @@ MEMORY=total memory in mb
 BIOS=bios version  
 SDA_DISK_SIZE=disk size  
 SDB_DISK_SIZE=disk size  
-Then edit the lines in the file to provide the real information of the hosts.  
+Then edit the lines in the file to provide the real information of the hosts. If a disk does not exist then write NONE.
+
+``` bash
+- name: QUESTION CORRECTION
+  hosts: all
+  become: true 
+  tasks: 
+  - name: change hostname
+    lineinfile:
+      path: /root/report.txt
+      line: HOST={{ ansible_hostname }}
+      regexp: ^HOST 
+      state: present 
+   - name: chahge memory
+     lineinfile:
+      path: /root/report.txt
+      line: MEMORY={{ ansible_memtotal_mb }}
+      regexp: ^MEMORY
+      state: present 
+   - name: change bios version
+     lineinfile:
+      path: /root/report.txt  
+      line: BIOS={{ ansible_bios_version }}
+      regexp: ^BIOS
+      state: present 
+   - name: change sda if there is sda
+     lineinfile:
+      path: /root/report.txt
+      line: SDA_DISK_SIZE={{ ansible_devices.sda.size }}
+      regexp: ^SDA_DISK_SIZE
+      state: present
+     when: "'sda' in  ansible_devices "
+   - name: change sda if there is no sda
+     lineinfile:
+      path: /root/report.txt
+      line: SDA_DISK_SIZE= NONE
+      regexp: ^SDA_DISK_SIZE
+      state: present
+     when: "'sda' not in  ansible_devices "
+   - name: change sdb if there is sdb
+     lineinfile:
+      path: /root/report.txt
+      line: SDA_DISK_SIZE={{ ansible_devices.sdb.size }}
+      regexp: ^SDB_DISK_SIZE
+      state: present
+     when: "'sdb' in ansible_devices "
+   - name: change sda if there is no sdb
+     lineinfile:
+      path: /root/report.txt
+      line: SDB_DISK_SIZE= NONE
+      regexp: ^SDB_DISK_SIZE
+      state: present
+     when: "'sdb' not in  ansible_devices "
+
+```
