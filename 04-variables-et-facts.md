@@ -24,12 +24,15 @@ Dans cette méthode, nous stockons les variables dans un fichier séparé puis o
 ```bash
 vim variables.yml
 ```
+### Utilisation de `vars_files`
+
 ```bash
 username: "alice"
 home_directory: "/home/alice"
 user_shell: "/bin/bash"
 
 ```
+
 ```bash
 vim plaubook.yml
 ```
@@ -53,7 +56,6 @@ pour afficher les facts
 
 ansible node1 -m setup | less
 ```
-### Utilisation de `vars_files`
 pour filtrer les facts en utilisant les variables
 ```bash 
 
