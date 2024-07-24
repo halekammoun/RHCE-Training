@@ -81,5 +81,12 @@ Exemple2: de playbook pour affichage de facts.
     debug:
       var: ansible_facts['default_ipv4']['address']
 ```
-
-
+### QUESTION:
+Create a file in /home/ansible called report.yml. Using this playbook, touch a file called report.txt in node1 and node 2 . 
+The file content of report.txt is
+HOST= inventory hostname
+MEMORY=total memory in mb
+BIOS=bios version
+SDA_DISK_SIZE=disk size
+SDB_DISK_SIZE=disk size
+Then edit the lines in the file to provide the real information of the hosts.  
