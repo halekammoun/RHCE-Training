@@ -136,3 +136,82 @@ hosts: all
       owner: root
       group: root
 ```
+### playbook avec plusieurs plays
+Un playbook Ansible peut contenir plusieurs "plays". Chaque "play" applique un ensemble de tâches à un groupe d'hôtes. Cela permet de structurer le playbook pour réaliser différentes phases d'une configuration ou d'un déploiement.  
+Exemple :
+- play1: ajouter un utilisateur
+- play2: le modifier
+NB: on utilise plusieurs plays pour qu'on puisse exécuter les plays dans différentes hotes `hosts`
+```bash
+- name: play1 to add group and its user
+  hosts: all
+  become: true
+  tasks:
+  - name: add the group
+    group:
+      name: group1
+      gid: 4900
+  - name: add the user
+    user:
+      name: user1
+      uid: 4008
+      group: group1
+- name: play2 to modify the user1
+  hosts: all
+  become: true
+  tasks:
+  - name: modify
+    user:
+      name: user1
+      uid: 4007
+```
+1. Premier play : Créer un site web.
+- installation firewalld et httpd
+- 'enable' les services httpd et firewalld
+- création index.html
+- 'allow' service httpd dans le firewall
+2. Deuxième play : Tester le site web.
+- afficher la page web
+<p style="text-align: right;">
+  <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/05-gestion-services.md">Lire service httpd de cours RHCSA</a>
+</p>
+```bash 
+- hosts: all  
+  become: true
+  tasks:      
+  - name: install packages
+    yum:      
+      name:   
+      - firewalld 
+      - httpd 
+      state: present
+  - name: enable httpd service
+    service:  
+      name:  httpd  
+      state: started
+      enabled: yes  
+  - name: enable firewalld service
+    service:         
+      name: firewalld
+      state: started 
+      enabled: yes   
+  - name: create index
+    copy:            
+      content: "hello"
+      dest: /var/www/html/index.html
+      setype: httpd_sys_content_t
+  - name: allow httpd service
+    firewalld:       
+      service: http  
+      permanent: yes 
+      state: enabled 
+      immediate: yes
+- hosts: all
+  become: false
+  tasks:
+  - name: webpage test
+    uri:
+      url: http://node1
+
+
+```
