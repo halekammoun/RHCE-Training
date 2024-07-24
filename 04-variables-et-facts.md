@@ -24,8 +24,6 @@ Dans cette méthode, nous stockons les variables dans un fichier séparé puis o
 ```bash
 vim variables.yml
 ```
-### Utilisation de `vars_files`
-
 ```bash
 username: "alice"
 home_directory: "/home/alice"
@@ -34,7 +32,7 @@ user_shell: "/bin/bash"
 ```
 
 ```bash
-vim plaubook.yml
+vim playbook.yml
 ```
 ```bash
 - name: Ajouter utilisateur avec un fichier de variables
@@ -50,7 +48,7 @@ vim plaubook.yml
         shell: "{{ user_shell }}"
         state: present
 ```
-### Facts
+## Facts
 pour afficher les facts
 ```bash 
 
