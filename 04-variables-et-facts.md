@@ -47,26 +47,39 @@ vim plaubook.yml
         shell: "{{ user_shell }}"
         state: present
 ```
+### Facts
+pour afficher les facts
+```bash 
 
 ansible node1 -m setup | less
+```
+### Utilisation de `vars_files`
+pour filtrer les facts en utilisant les variables
+```bash 
+
 ansible node1 -m setup -a "filter=ansible_default_ipv4"
+```
+Exemple1: de playbook pour affichage de facts.
+```bash 
+- name: Ansible Facts Playbook
+  hosts: all
+  tasks:
+  - name: Display ansible fact
+    debug:
+      var: ansible_hostname
+```
+Exemple2: de playbook pour affichage de facts.
 
-nane: Ansible Facts Playbook
-hosts: all
-tasks:
-name: Display ansible fact
-debug:
-var: ansible hostname
+```bash 
+- name: Ansible Facts Playbook
+  hosts: all
+  tasks:
+  - name: Display Facts method1
+    debug:
+      var: ansible_default_ipv4.address
+  - name: Display Facts method2
+    debug:
+      var: ansible_facts['default_ipv4']['address']
+```
 
 
-
-nane: Ansible Facts Playbook
-hosts: all
-tasks:
-nane: Display Facts in old way
-debug:
-var:
-ansible_default_1pv4.address
-nane: Display Facts in new way
-debug:
-var: ansible_facts['default ipv4']['address']
