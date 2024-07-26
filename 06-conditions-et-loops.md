@@ -214,6 +214,13 @@ tel que "If a disk does not exist then write NONE" comme suivant:
 
 ```
 ### QUESTION:
+0. your inventory is 
+```bash
+[dev]
+node1
+[proxy]
+node2
+```
 1. Create an ansible vault password file called lock.yml with the password reallysafepw in the /home/ansible directory. In the lock.yml file define two variables. One is pw_dev and the password is ‘dev’ and the other is pw_mgr and the password is ‘mgr’. Create a regular file called secret.txt which contains the password for lock.yml.
 
 2. Create the users in the file users_list.yml file provided. Do this in a playbook called users.yml located at /home/ansible. The passwords for these users should be set using the lock.yml file. When running the playbook, the lock.yml file should be unlocked with secret.txt file.
