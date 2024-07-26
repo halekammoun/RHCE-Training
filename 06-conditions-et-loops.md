@@ -239,3 +239,40 @@ users:
 3. All users with the job of ‘developer’ should be created on the dev hosts, add them to the group devops, their password should be set using the pw_dev variable. Likewise create users with the job of ‘manager’ on the proxy host and add the users to the group ‘managers’, their password should be set using the pw_mgr variable.
 
 NB:  inventory_hostname est le nom que vous donnez à l'hôte dans votre fichier d'inventaire(/etc/hosts+inventory), tandis que ansible_hostname est le nom que l'hôte distant utilise pour se référencer lui-même(facts -> hostname).
+
+```bash
+ansible-vault create lock.yml
+```
+```bash
+vim secret.txt
+```
+```bash
+- hosts: all              
+  become: true            
+  vars_files:             
+    - lock.yml            
+    - users_list.yml      
+  tasks:                  
+  - name: create groups   
+    group:                
+      name: "{{item}}"    
+      state: present      
+    loop:                 
+      - managers          
+      - devops            
+  - name: create developers on dev hosts
+    user:                 
+      name: "{{item.username}}"
+      group: devops       
+      password: "{{pw_dev | password_hash('sha512')}}"
+    loop: "{{users}}"     
+    when: "item.job == 'developer' and inventory_hostname in groups['dev']"
+  - name: create managers on proxy hosts
+    user:                 
+      name: "{{item.username}}"
+      group: managers     
+      password: "{{pw_mgr | password_hash('sha512')}}"
+    loop: "{{users}}"     
+    when: "item.job == 'manager' and inventory_hostname in groups['proxy']"
+
+```
