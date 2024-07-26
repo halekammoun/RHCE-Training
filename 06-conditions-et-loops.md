@@ -85,7 +85,7 @@ vim playbook.yml
 NB: 
 - `users`: Contient une liste de dictionnaires, chaque dictionnaire ayant les clés `username` et `his_group`.
 - loop: "{{ users }}" : Utilise la liste `users` définie dans `dict_loop.yml`.
-- `item.username` et `item.his_group` : Accède aux valeurs du dictionnaire actuel dans la boucle.
+- `item.username` et `item.his_group` : Accède aux valeurs du dictionnaire actuel dans la boucle.  
 On peut maintenant utiliser les loops pour l'exercice de httpd 
 <p style="text-align: right;">
   <a href="https://github.com/halekammoun/RHCE-Training/blob/main/03-les-playbooks.md"> dans la fin de cette section </a>
