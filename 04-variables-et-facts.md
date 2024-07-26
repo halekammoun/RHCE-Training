@@ -121,12 +121,13 @@ Then edit the lines in the file to provide the real information of the hosts.
       line: BIOS={{ ansible_bios_version }}
       regexp: ^BIOS
       state: present 
-   - name: change sda if there is sda
+   - name: change sda 
      lineinfile:
       path: /root/report.txt
       line: SDA_DISK_SIZE={{ ansible_devices.sda.size }}
       regexp: ^SDA_DISK_SIZE
       state: present
+   - name: change sdb
      lineinfile:
       path: /root/report.txt
       line: SDA_DISK_SIZE={{ ansible_devices.sdb.size }}
