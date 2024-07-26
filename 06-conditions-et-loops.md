@@ -155,7 +155,7 @@ La condition when en Ansible permet d'exécuter des tâches uniquement si certai
 ```
 On peut maintenant utiliser les conditions pour la question
 <p style="text-align: right;">
-  <a href="https://github.com/halekammoun/RHCE-Training/blob/master/04-variable-et-facts.md"> dans la fin de cette section </a>
+  <a href="https://github.com/halekammoun/RHCE-Training/blob/master/04-variables-et-facts.md"> dans la fin de cette section </a>
 </p>
 
 tel que "If a disk does not exist then write NONE" comme suivant:
