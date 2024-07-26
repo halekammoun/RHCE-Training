@@ -138,9 +138,9 @@ hosts: all
 ```
 ### playbook avec plusieurs plays
 Un playbook Ansible peut contenir plusieurs "plays". Chaque "play" applique un ensemble de tâches à un groupe d'hôtes. Cela permet de structurer le playbook pour réaliser différentes phases d'une configuration ou d'un déploiement.  
-Exemple :
+Exemple 1:  
 - play1: ajouter un utilisateur
-- play2: le modifier
+- play2: le modifier  
 NB: on utilise plusieurs plays pour qu'on puisse exécuter les plays dans différentes hotes `hosts`
 ```bash
 - name: play1 to add group and its user
@@ -165,6 +165,7 @@ NB: on utilise plusieurs plays pour qu'on puisse exécuter les plays dans diffé
       name: user1
       uid: 4007
 ```
+Exemple 2:  
 1. Premier play : Créer un site web.
 - installation firewalld et httpd
 - 'enable' les services httpd et firewalld

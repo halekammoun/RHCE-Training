@@ -1,5 +1,11 @@
-## Les variables
-### Utilisation de `vars`
+<h1 align="center" style="color: red;">Les variables et ansible Facts</h1>
+
+### Introduction
+👋 Dans cette section, nous allons explorer comment utiliser les variables suivant deux méthodes et comment utiliser les 'Facts'.
+
+
+### Les variables
+#### Utilisation de `vars`
 Dans cette méthode, nous définissons les variables directement dans le playbook sous la section `vars`
 Exemple 1 :
 ```bash
@@ -19,7 +25,7 @@ Exemple 1 :
         state: present
 
 ```
-### Utilisation de `vars_files`
+#### Utilisation de `vars_files`
 Dans cette méthode, nous stockons les variables dans un fichier séparé puis on fait l'appel de fichier dans la section `vars_files`
 ```bash
 vim variables.yml
@@ -48,7 +54,7 @@ vim playbook.yml
         shell: "{{ user_shell }}"
         state: present
 ```
-## Facts
+### Facts
 pour afficher les facts
 ```bash 
 
@@ -90,7 +96,7 @@ MEMORY=total memory in mb
 BIOS=bios version  
 SDA_DISK_SIZE=disk size  
 SDB_DISK_SIZE=disk size  
-Then edit the lines in the file to provide the real information of the hosts. If a disk does not exist then write NONE.
+Then edit the lines in the file to provide the real information of the hosts. 
 
 ``` bash
 - name: QUESTION CORRECTION
@@ -121,30 +127,10 @@ Then edit the lines in the file to provide the real information of the hosts. If
       line: SDA_DISK_SIZE={{ ansible_devices.sda.size }}
       regexp: ^SDA_DISK_SIZE
       state: present
-     when: "'sda' in  ansible_devices "
-   - name: change sda if there is no sda
-     lineinfile:
-      path: /root/report.txt
-      line: SDA_DISK_SIZE= NONE
-      regexp: ^SDA_DISK_SIZE
-      state: present
-     when: "'sda' not in  ansible_devices "
-   - name: change sdb if there is sdb
      lineinfile:
       path: /root/report.txt
       line: SDA_DISK_SIZE={{ ansible_devices.sdb.size }}
       regexp: ^SDB_DISK_SIZE
       state: present
-     when: "'sdb' in ansible_devices "
-   - name: change sda if there is no sdb
-     lineinfile:
-      path: /root/report.txt
-      line: SDB_DISK_SIZE= NONE
-      regexp: ^SDB_DISK_SIZE
-      state: present
-     when: "'sdb' not in  ansible_devices "
-
 ```
 
-# Demain est férié. Profitez bien 😊
-# Tous les entraînements vont continuer vendredi, on va pas faire une séance en ligne 
