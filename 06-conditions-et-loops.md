@@ -137,7 +137,7 @@ vim httpd.yml
 La condition when en Ansible permet d'exécuter des tâches uniquement si certaines conditions sont remplies. Si la condition n'est pas remplie, la tâche est ignorée, et Ansible indique cette action dans la sortie `skipping`
 #### Exemple de Playbook avec when:
 ```bash
-- name: Install apache
+- name: Install vim in CentOS and Ubuntu nodes
   hosts: web
   tasks:
     - name: Install vim on Centos
