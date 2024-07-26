@@ -81,7 +81,7 @@ vim playbook.yml
     - password.yml
   tasks:
   - name: Créer l'utilisateur
-      user:
+    user:
       name: "{{ username }}"
       password: "{{ password | password_hash('sha512') }}"
       state: present
