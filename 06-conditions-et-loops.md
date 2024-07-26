@@ -88,7 +88,7 @@ NB:
 - `item.username` et `item.his_group` : Accède aux valeurs du dictionnaire actuel dans la boucle.  
 On peut maintenant utiliser les loops pour l'exercice de httpd 
 <p style="text-align: right;">
-  <a href="https://github.com/halekammoun/RHCE-Training/blob/main/03-les-playbooks.md"> dans la fin de cette section </a>
+  <a href="https://github.com/halekammoun/RHCE-Training/blob/master/03-les-playbooks.md"> dans la fin de cette section </a>
 </p>
 
 comme suivant:
@@ -155,7 +155,7 @@ La condition when en Ansible permet d'exécuter des tâches uniquement si certai
 ```
 On peut maintenant utiliser les conditions pour la question
 <p style="text-align: right;">
-  <a href="https://github.com/halekammoun/RHCE-Training/blob/main/04-variable-et-facts.md"> dans la fin de cette section </a>
+  <a href="https://github.com/halekammoun/RHCE-Training/blob/master/04-variable-et-facts.md"> dans la fin de cette section </a>
 </p>
 
 tel que "If a disk does not exist then write NONE" comme suivant:
