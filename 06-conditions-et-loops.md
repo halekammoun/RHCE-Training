@@ -237,3 +237,5 @@ users:
    job: developer  
 ```
 3. All users with the job of ‘developer’ should be created on the dev hosts, add them to the group devops, their password should be set using the pw_dev variable. Likewise create users with the job of ‘manager’ on the proxy host and add the users to the group ‘managers’, their password should be set using the pw_mgr variable.
+
+NB:  inventory_hostname est le nom que vous donnez à l'hôte dans votre fichier d'inventaire(/etc/hosts+inventory), tandis que ansible_hostname est le nom que l'hôte distant utilise pour se référencer lui-même(facts -> hostname).
