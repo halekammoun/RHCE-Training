@@ -90,5 +90,3 @@ vim hosts.yml
       when: "'dev' in group_names"
 
 ```
-# lien meet à 9h
-# https://meet.google.com/ckv-kayq-cxs
