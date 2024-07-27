@@ -1,4 +1,4 @@
-<h1 align="center" style="color: red;">Les conditions & les boucles</h1>
+<h1 align="center" style="color: red;">Jinja2 et Template</h1>
 
 ### Introduction
 👋 Dans cette section, nous allons explorer comment utiliser la syntaxe `jinja2` et le module `template`.
