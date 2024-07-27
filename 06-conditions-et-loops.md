@@ -276,5 +276,4 @@ vim secret.txt
     when: "item.job == 'manager' and inventory_hostname in groups['proxy']"
 
 ```
-# lien meet à 9h
-# https://meet.google.com/ckv-kayq-cxs
+
