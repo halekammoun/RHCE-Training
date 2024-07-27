@@ -127,5 +127,3 @@ Dans cet exemple :
 - Les tâches à l'intérieur du block sont exécutées en premier.  
 - Si une tâche dans le block échoue, les tâches dans le rescue sont exécutées pour gérer l'erreur.
 - Les tâches dans le always sont exécutées, que les tâches du block ou du rescue aient échoué ou réussi.
-# lien meet à 9h
-# https://meet.google.com/ckv-kayq-cxs
