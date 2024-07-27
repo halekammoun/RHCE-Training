@@ -62,7 +62,7 @@ NB: `hostvars` est une variable spéciale dans Ansible qui contient des informat
 
 
 ```bash 
-vim /root/myhosts.j2
+vim /home/ansible/myhosts.j2
 ```
 
 ```bash 
@@ -85,7 +85,7 @@ vim hosts.yml
   tasks:
     - name: Template a file to dev hosts
       template:
-        src: /home/ismat/ansible/hosts.j2
+        src: /home/ansible/hosts.j2
         dest: /root/myhosts
       when: "'dev' in group_names"
 
