@@ -41,12 +41,12 @@ Exemple de module template :
 
 ```
 ## QUESTION:
-0. create this file called /root/myhosts.j2 in /home/ansible/.
+0. create this file called /root/myhosts.j2 in the control node
 ```bash 
 127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1 localhost localhost.localdomain localhost6 localhost6.localdomain6
 ```
-1. create the jinja template in this file, Then create a playbook in /home/ansible called hosts.yml on dev node so that /root/myhosts content will be like below.  
+1. you should create the jinja template in this file, Then you should create a playbook in /home/ansible called hosts.yml on dev node so that /root/myhosts content will be like below.  
 The order of the nodes doesn’t matter.
 ```bash 
 127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4
@@ -90,5 +90,3 @@ vim hosts.yml
       when: "'dev' in group_names"
 
 ```
-# lien meet à 9h
-# https://meet.google.com/ckv-kayq-cxs
