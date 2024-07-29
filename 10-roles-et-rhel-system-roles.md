@@ -137,3 +137,13 @@ cat example-multiple-ntp-servers-playbook.yml
   roles:
     - rhel-system-roles.selinux
 ```
+un autre exemple:
+``` bash
+- name: Manage SELinux policy example
+  hosts: all
+  vars: 
+    selinux_policy: targeted
+    selinux_state: enforcing
+  roles: 
+    - rhel-system-roles.selinux
+```
