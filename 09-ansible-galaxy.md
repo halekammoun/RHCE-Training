@@ -72,3 +72,19 @@ Cette commande télécharge et installe tous les rôles listés dans le fichier 
 ```
 ## QUESTION
 Create a file called requirements.yml in /home/ansible/roles to install two roles. The source for the first role is geerlingguy.haproxy and geerlingguy.php. Name the first haproxy-role and the second php-role. The roles should be installed in /home/ansible/roles1.
+
+``` bash 
+echo "roles_path= /home/ansible/roles1" >> ansible.cfg
+```
+``` bash 
+vim requirements.yml
+```
+``` bash 
+- name: haproxy-role
+  src: geerlingguy.haproxy
+- name: php-role
+  src: geerlingguy.php
+```
+``` bash 
+ansible-galaxy install -r requirements.yml
+```
