@@ -92,7 +92,7 @@ yum install rhel-system-roles
 ```
 ``` bash
 
-sudo cp /usr/share/ansible/roles/* /home/ansible/roles1
+sudo cp -r /usr/share/ansible/roles/* /home/ansible/roles1
 ```
 
 Cette commande télécharge et installe les rôles dans le répertoire des rôles d'Ansible (souvent ~/.ansible/roles ou un répertoire défini dans votre configuration).
