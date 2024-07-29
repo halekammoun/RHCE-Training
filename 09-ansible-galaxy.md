@@ -53,8 +53,6 @@ Exemple de requirements.yml :
 - name: geerlingguy.mysql
   src: geerlingguy.mysql
 
-- name: example.custom_role
-  src: git+https://github.com/example/custom_role.git
 ```
 #### Installer les Rôles à partir de requirements.yml
 
@@ -71,5 +69,6 @@ Cette commande télécharge et installe tous les rôles listés dans le fichier 
   roles:
     - geerlingguy.apache
     - geerlingguy.mysql
-    - example.custom_role
 ```
+## QUESTION
+Create a file called requirements.yml in /home/ansible/roles to install two roles. The source for the first role is geerlingguy.haproxy and geerlingguy.php. Name the first haproxy-role and the second php-role. The roles should be installed in /home/ansible/roles1.
