@@ -124,7 +124,7 @@ cat example-timesync-playbook
 Ce rôle configure les paramètres de SELinux.
 Exemple de Playbook utilisant selinux :
 ``` bash
-cat example-selinux-playbook
+cat example-multiple-ntp-servers-playbook.yml
 ```
 ``` bash
 - name: Manage SELinux Booleans
@@ -136,10 +136,4 @@ cat example-selinux-playbook
       state: true
   roles:
     - rhel-system-roles.selinux
-```
-Vous pouvez également utiliser la commande ansible-doc pour obtenir des détails sur les rôles et les variables disponibles :
-``` bash
-ansible-doc rhel-system-roles.timesync
-ansible-doc rhel-system-roles.selinux
-
 ```
