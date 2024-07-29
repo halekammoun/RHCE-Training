@@ -71,7 +71,7 @@ Cette commande télécharge et installe tous les rôles listés dans le fichier 
     - geerlingguy.mysql
 ```
 ## QUESTION
-Create a file called requirements.yml in /home/ansible/roles to install two roles. The source for the first role is geerlingguy.haproxy and geerlingguy.php. Name the first haproxy-role and the second php-role. The roles should be installed in /home/ansible/roles1.
+1. Create a file called requirements.yml in /home/ansible/roles to install two roles. The source for the first role is geerlingguy.haproxy and geerlingguy.php. Name the first haproxy-role and the second php-role. The roles should be installed in /home/ansible/roles1.
 
 ``` bash 
 echo "roles_path= /home/ansible/roles1" >> ansible.cfg
@@ -88,3 +88,5 @@ vim requirements.yml
 ``` bash 
 ansible-galaxy install -r requirements.yml
 ```
+2. Use the roles in a file called role.yml in /home/ansible/. 
+The haproxy-role should be used on the proxy host. And when you curl http://node3.example.com. it should display “Welcome to node4.example.com” and when you curl again “Welcome to node5.example.com” The php-role should be used on the prod host.
