@@ -12,6 +12,10 @@ Pour créer un rôle Ansible, vous utilisez la commande ansible-galaxy init. Cel
 cd /path/to/your/custom/roles
 ansible-galaxy init apache
 ```
+or you can specify the path
+``` bash
+ansible-galaxy init --init-path= /path/to/your/custom/roles apache
+```
 ``` bash
 cd apache
 tree
@@ -75,7 +79,8 @@ vim apache.yml
 ```
 ``` bash
 - name: Install apache from apache-role
-  hosts: webservers
+  hosts: all
+  become: true
   roles:
     - sample-apache
 ```
