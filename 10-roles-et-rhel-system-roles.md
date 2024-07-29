@@ -22,20 +22,20 @@ tree
 - `vars/` : Contient les variables spécifiques au rôle.
 ####  Définir les Tâches dans tasks/main.yml
 ``` bash
----
-# tasks file for sample-apache
-- name: Enable httpd
+
+
+- name: install packages
+  yum:
+    name: "{{item}}"
+    state: present
+  loop: "{{packages}}"
+
+- name: Enable services
   service:
-    name: httpd
+    name: "{{item}}"
     state: started
     enabled: yes
-
-- name: Enable firewalld
-  service:
-    name: firewalld
-    state: started
-    enabled: yes
-
+  loop: "{{packages}}"
 - name: Allow webserver service
   firewalld:
     service: http
@@ -48,7 +48,7 @@ tree
     src: index.html.j2
     dest: /var/www/html/index.html
   notify:
-    - restart_webservers
+    - restart_service
 ```
 NB: `notify` notifie le handler restart_webservers lorsque le fichier de template change.
 #### Créer le Template Jinja2 dans templates/index.html.j2
@@ -57,11 +57,18 @@ Welcome to {{ ansible_fqdn }} on {{ ansible_default_ipv4.address }}
 ```
 #### Définir le Handler pour Redémarrer le Service
 ``` bash
-- name: restart_webservers
+- name: restart_service
   service:
     name: httpd
     state: restarted
 ```
+#### Créer variable packages dans vars/main.yml
+``` bash
+packages:
+- firewalld
+- httpd
+```
+
 #### Créer un Playbook Utilisant le Rôle
 ``` bash
 vim apache.yml
