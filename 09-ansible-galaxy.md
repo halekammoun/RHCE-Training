@@ -89,4 +89,15 @@ vim requirements.yml
 ansible-galaxy install -r requirements.yml
 ```
 2. Use the roles in a file called role.yml in /home/ansible/. 
-The haproxy-role should be used on the proxy host. And when you curl http://node3.example.com. it should display “Welcome to node4.example.com” and when you curl again “Welcome to node5.example.com” The php-role should be used on the prod host.
+The haproxy-role should be used on the proxy host and The php-role should be used on the prod host.
+``` bash 
+
+- hosts: proxy
+  become: true
+  roles:
+  - haproxy-role
+- hosts: prod
+  become: true
+  roles:
+  - php-role
+```
