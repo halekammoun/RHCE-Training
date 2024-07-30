@@ -109,6 +109,19 @@ e) format the partition with the ext4 filesystem if it is created
           fstype: ext4
           dev: /dev/sdb1
         when: "'sdb' in ansible _devices"
+      - name: Create mount point directory
+        file:
+          path: /srv
+          state: directory
+        when: "'sdb' in ansible_devices"
+      - name: Mount partition
+        mount:
+          path: /srv
+          src: /dev/sdb1
+          fstype: ext4
+          state: mounted
+        when: "'sdb' in ansible_devices"
+
 
 ``` 
 
