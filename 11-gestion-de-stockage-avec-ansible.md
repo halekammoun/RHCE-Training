@@ -1,7 +1,7 @@
 <h1 align="center" style="color: red;">Gestion de stockage</h1>
 
 ### Introduction
-👋 Dans cette section, nous allons explorer gérer les partitions et les volumes logiques.
+👋 Dans cette section, nous allons explorer comment gérer les partitions et les volumes logiques.
 
 ### Création de partition
 On a besoin de la collection community.general pour les modules lvm
@@ -69,11 +69,11 @@ ansible-doc mount
 ```
 ## QUESTION 
 
-Create /home/ansible/partition.yml, which will create partitions on all the managed nodes:
-a) After sdb creating a 1200M primary partition, partition number 1, and format it into ext4 filesystem and mount it under /srv
-c) If there is not enough disk space, give prompt information "Could not create partition of that size" and create a 800M partition.
-d) If sdb does not exist, a prompt message will be given "this disk does not exist."
-e) format the partition with the ext4 filesystem if it is created
+Create /home/ansible/partition.yml, which will create partitions on all the managed nodes:  
+a) After sdb creating a 1200M primary partition, partition number 1, and format it into ext4 filesystem and mount it under /srv  
+c) If there is not enough disk space, give prompt information "Could not create partition of that size" and create a 800M partition.  
+d) If sdb does not exist, a prompt message will be given "this disk does not exist."  
+e) format the partition with the ext4 filesystem if it is created  
 <!--
 ``` bash
 - name: Partition Playbook
