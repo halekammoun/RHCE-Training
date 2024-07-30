@@ -208,6 +208,7 @@ vii. Don't mount the logical volume in any way.
 ``` bash
 - name: lvm playbook
   hosts: all
+  become: true
   tasks:
   - name: checking details
     block:
