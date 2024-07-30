@@ -74,7 +74,7 @@ a) After sdb creating a 1200M primary partition, partition number 1, and format 
 c) If there is not enough disk space, give prompt information "Could not create partition of that size" and create a 800M partition.  
 d) If sdb does not exist, a prompt message will be given "this disk does not exist."  
 e) format the partition with the ext4 filesystem if it is created  
-<!--
+
 ``` bash
 - name: Partition Playbook
   hosts: all
@@ -111,7 +111,7 @@ e) format the partition with the ext4 filesystem if it is created
         when: "'sdb' in ansible _devices"
 
 ``` 
--->
+
 ### Création d'un Groupe de Volumes avec lvg
 ``` bash
 ansible-doc lvg
