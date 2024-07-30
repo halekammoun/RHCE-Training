@@ -204,7 +204,7 @@ v. if the requested logical volume size cannot be created, the error message "co
 vi. if the volume research does not exist, the error message "volume group does not exist"
 should be displayed.  
 vii. Don't mount the logical volume in any way.  
-<!--
+
 ``` bash
 - name: lvm playbook
   hosts: all
@@ -239,4 +239,3 @@ vii. Don't mount the logical volume in any way.
         dev: /dev/research/data
       when: "'research' in ansible_lvm.lvs"
 ```
--->
