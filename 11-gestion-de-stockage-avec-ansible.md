@@ -216,13 +216,13 @@ vii. Don't mount the logical volume in any way.
         debug:
           msg: "volume group does not exist"
         when: "'research' not in ansible_lvm.vgs"
-  - name: creating the 1200m lvm
-    lvol:
-      vg: research     
-      Lv: data   
-      size: 1200m
-    when: "'research' in ansible_lvm.vgs"  
-  rescue:
+      - name: creating the 1200m lvm
+        lvol:
+          vg: research     
+          Lv: data   
+          size: 1200m
+        when: "'research' in ansible_lvm.vgs"  
+    rescue:
     - name: if the requested logical volume size cannot be cretaed
       debug:
         msg: "Could not create logical volume of that size"
@@ -233,7 +233,7 @@ vii. Don't mount the logical volume in any way.
         lv: data
         size: 800m
       when: "'research' in ansible_lvm.vgs"
-  always:
+    always:
     - name: format filesystem
       filesystem:
         fstype: ext4
