@@ -84,14 +84,14 @@ e) format the partition with the ext4 filesystem if it is created
       - name: If sdb does not exist
         debug:
           msg: "this disk does not exist."
-        when: "'sdb' not in ansible devices"
+        when: "'sdb' not in ansible_devices"
       - name: Creating the 1200m partition
         parted:
           device: /dev/sdb
           number: 1
           part_end: 1200MiB
           state: present
-        when: "'sdb' in ansible devices"  
+        when: "'sdb' in ansible_devices"  
    rescue:
       - name: If there is not enough disk space
         debug:                            
@@ -103,6 +103,7 @@ e) format the partition with the ext4 filesystem if it is created
           number: 1
           part_end: 800MiB
           state: present
+        when: "'sdb1' not in ansible_devices.sdb"
     always:
       - name: Creating the ext4 filesystem
         filesystem:
