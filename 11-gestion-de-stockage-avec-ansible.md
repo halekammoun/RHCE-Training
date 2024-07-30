@@ -122,8 +122,6 @@ e) format the partition with the ext4 filesystem if it is created
           fstype: ext4
           state: mounted
         when: "'sdb' in ansible_devices"
-
-
 ``` 
 
 ### Création d'un Groupe de Volumes avec lvg
@@ -196,16 +194,16 @@ ansible-doc mount
         state: mounted  # État souhaité (mounted pour monter le volume)
 ```
 ## QUESTION
-Create a playbook called /home/ansible/lvm.yml that runs on all the managed nodes and does the following:
+Create a playbook called /home/ansible/lvm.yml that runs on all the managed nodes and does the following:  
 a) Creates a logical volume with the following requirements:
-i.The logical volume is created in the volume group.
-ii.The logical volume name is data.
-ili.The logical volume size is 1200 Mib.
-iv. Format the logical volume with the ext4 file-system.
-v. if the requested logical volume size cannot be created, the error message "could not create logical volume of that size" should be displayed and size 800 MiB should be used instead.
+i.The logical volume is created in the volume group.  
+ii.The logical volume name is data.  
+ili.The logical volume size is 1200 Mib.  
+iv. Format the logical volume with the ext4 file-system.  
+v. if the requested logical volume size cannot be created, the error message "could not create logical volume of that size" should be displayed and size 800 MiB should be used instead.  
 vi. if the volume research does not exist, the error message "volume group does not exist"
-should be displayed.
-vii. Don't mount the logical volume in any way.
+should be displayed.  
+vii. Don't mount the logical volume in any way.  
 <!--
 ``` bash
 - name: lvm playbook
