@@ -103,6 +103,10 @@ Then edit the lines in the file to provide the real information of the hosts.
   hosts: all
   become: true 
   tasks: 
+  - name: get file to nodes
+    get_url:
+      url: lien 
+      dest: /home/ansible/report.txt
   - name: change hostname
     lineinfile:
       path: /root/report.txt
