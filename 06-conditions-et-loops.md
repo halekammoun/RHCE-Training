@@ -276,4 +276,10 @@ vim secret.txt
     when: "item.job == 'manager' and inventory_hostname in groups['proxy']"
 
 ```
+## QUESTION
+Create a playbook called webdev.yml in /home/ismat/ansible.   The playbook will create a directory /webdev on dev host.  The permission of the directory is u=rwx,g=rw, other has no permission.  
+Set group id for the folder and owner is webdev.  
+Create a symbolic link from /webdev to /var/www/html/webdev.  
+Serve a file from /webdev/index.html which displays the text “Development”.  
+Curl http://node1.example.com/webdev/index.html to test
 
