@@ -283,3 +283,40 @@ Create a symbolic link from /webdev to /var/www/html/webdev.
 Serve a file from /webdev/index.html which displays the text “Development”.  
 Curl http://node1.example.com/webdev/index.html to test
 
+```bash
+- name: web development
+  hosts: node1
+  become: true
+  tasks:
+   - name: create webdev user
+     user:
+      name: webdev
+      state: present
+   - name: create directory
+     file:
+      path: /webdev
+      state: directory
+      owner: webdev
+      mode: 2760
+   - name: create symbolic link
+     file:
+      src: /webdev
+      path: /var/www/html/webdev
+      state: link
+   - name: create index.html
+     copy:
+      content: Development
+      dest: /var/www/html/webdev/index.html
+   - name: install selinux policy
+     yum:
+      name: python3-policycoreutils
+      state: present
+   - name: allow httpd from custom directory
+     sefcontext:
+      target: '/webdev(/.*)?'
+      setype: httpd_sys_content_t
+      state: present
+   - name: restore the context
+      shell: restorecon -vR /webdev
+
+```
