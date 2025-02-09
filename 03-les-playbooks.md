@@ -75,19 +75,27 @@
 
 
 ``` bash
-- name: install and strat service httpd
-  hosts: all
+- hosts: web-server
   become: true
   tasks:
-  - name: install httpd
+  - name: istaller httpd
     yum:
       name: httpd
-      state: latest
-  - name: start httpd
+      state: present
+- hosts: all
+  become: true
+  tasks:
+  - name: verif httpd
+    command: rpm -q httpd
+- hosts: target-node1
+  become: true
+  tasks:
+  - name: enable and start httpd
     service:
       name: httpd
-      state: started
       enabled: yes
+      state: started
+
 
 ```
 
