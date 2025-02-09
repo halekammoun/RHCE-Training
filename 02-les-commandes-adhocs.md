@@ -91,48 +91,56 @@ ansible all -m user -a "name=lisa"
 ansible all -m command -a "tail -1 /etc/passwd"
 ```
 --!>
-#### Q1. Modifiez l'utilisateur « lisa » pour que son shell soit /sbin/nologin, que son UID soit 2005 et que son home directory soit /home/lisa.
+#### Q1. Modifiez l'utilisateur « lisa » pour que son shell soit /sbin/nologin, que son UID soit 2005 et que son home directory soit /home/lisa.  
+
 <!--
 ```bash
 ansible all -m user -a "name=lisa shell=/sbin/nologin uid=2005 home=/home/lisa"
 
 ```
 --!>
-#### Q2. Supprimez maintenant l’utilisateur lisa de toutes les machines hôtes 
+#### Q2. Supprimez maintenant l’utilisateur lisa de toutes les machines hôtes  
+
 <!--
 ```bash
 ansible all -m user -a "name=lisa state=absent"
 
 ```
 --!>
-#### Q3. Installez le package httpd dans la machine hôte target-node1.
+#### Q3. Installez le package httpd dans la machine hôte target-node1.  
+
 <!--
 ```bash
 ansible target-node1 -m yum -a "name=httpd state=present"
 
 ```
 --!>
-#### Q4. Vérifiez l’installation du package httpd dans toutes les machines en utilisant le module command
+#### Q4. Vérifiez l’installation du package httpd dans toutes les machines en utilisant le module command  
+
 <!--
 ```bash
 ansible all -m command -a "rpm -q httpd"
 
 ```
 --!>
-#### Q5. Démarrez et activez maintenant le service httpd dans la machine hôte
+#### Q5. Démarrez et activez maintenant le service httpd dans la machine hôte  
+
 <!--
 ```bash
 ansible target-node1 -m service -a "name=httpd state=started enabled=yes"
 
 ```
 --!>
-#### Q6. Utilisez le module service pour vérifier l’état de httpd sur tous les machines
+#### Q6. Utilisez le module service pour vérifier l’état de httpd sur tous les machines  
+
 <!--
 ```bash
 ansible all -m service -a "name=httpd state=started"
 ```
 --!>
-#### Q7. Utilisez le module lineinfile pour ajouter une ligne au fichier /etc/hosts sur toutes les machines hôtes. La ligne à ajouter est 192.168.1.100 newhost.
+
+#### Q7. Utilisez le module lineinfile pour ajouter une ligne au fichier /etc/hosts sur toutes les machines hôtes. La ligne à ajouter est 192.168.1.100 newhost.  
+ 
 <!--
 
 ```bash
@@ -141,7 +149,8 @@ ansible all -m lineinfile -a "path=/etc/hosts line='192.168.1.100 newhost' state
 
 ```
 --!>
-#### Q8. Utilisez le module copy pour copier un fichier nommé index.html depuis la machine de contrôle vers le répertoire /var/www/html/ sur la machine target-node2.
+#### Q8. Utilisez le module copy pour copier un fichier nommé index.html depuis la machine de contrôle vers le répertoire /var/www/html/ sur la machine target-node2.  
+
 <!--
 ```bash
 ansible target-node2 -m copy -a "src=/index.html dest=/var/www/html/"
@@ -151,7 +160,8 @@ ansible target-node2 -m copy -a "src=/index.html dest=/var/www/html/"
 --!>
 
 
-#### Q10. Utilisez le module file pour créer un répertoire nommé /backup sur toutes les machines hôtes avec les permissions 0755, appartenant à l'utilisateur root et au groupe root.
+#### Q10. Utilisez le module file pour créer un répertoire nommé /backup sur toutes les machines hôtes avec les permissions 0755, appartenant à l'utilisateur root et au groupe root.  
+
 <!--
 
 ```bash
@@ -161,7 +171,8 @@ ansible all -m file -a "path=/backup state=directory mode=0755 owner=root group=
 ```
 --!>
 
-#### Q11. Ajoutez une ligne pour configurer le serveur SSH afin d'autoriser l'authentification par mot de passe dans le fichier /etc/ssh/sshd_config.
+#### Q11. Ajoutez une ligne pour configurer le serveur SSH afin d'autoriser l'authentification par mot de passe dans le fichier /etc/ssh/sshd_config.  
+
 <!--
 
 ```bash
@@ -170,7 +181,8 @@ ansible all -m lineinfile -a "path=/etc/ssh/sshd_config line='PasswordAuthentica
 ```
 --!>
 
-#### Q12. Supprimez la ligne contenant l'adresse 192.168.1.100 dans /etc/hosts.
+#### Q12. Supprimez la ligne contenant l'adresse 192.168.1.100 dans /etc/hosts.  
+
 <!--
 
 ```bash
