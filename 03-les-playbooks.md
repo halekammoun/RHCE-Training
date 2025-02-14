@@ -181,6 +181,10 @@ Exemple 2:
 - 'allow' service httpd dans le firewall
 2. Deuxième play : Tester le site web.
 - afficher la page web
+RQ: Pour installer le module firewalld on doit installer la collection ansible.posix
+```bash
+ansible-galaxy collection install ansible.posix
+```
 <p style="text-align: right;">
   <a href="https://github.com/halekammoun/RHCSA-Training/blob/main/05-gestion-services.md">Lire service httpd de cours RHCSA</a>
 </p>
