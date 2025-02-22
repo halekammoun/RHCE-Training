@@ -282,10 +282,12 @@ Set group id for the folder and owner is webdev.
 Create a symbolic link from /webdev to /var/www/html/webdev.  
 Serve a file from /webdev/index.html which displays the text “Development”.  
 Curl http://node1.example.com/webdev/index.html to test
-
+```bash
+ansible-galaxy collection install community.general
+```
 ```bash
 - name: web development
-  hosts: node1
+  hosts: dev
   become: true
   tasks:
    - name: create webdev user
@@ -307,10 +309,6 @@ Curl http://node1.example.com/webdev/index.html to test
      copy:
       content: Development
       dest: /var/www/html/webdev/index.html
-   - name: install selinux policy
-     yum:
-      name: python3-policycoreutils
-      state: present
    - name: allow httpd from custom directory
      sefcontext:
       target: '/webdev(/.*)?'
