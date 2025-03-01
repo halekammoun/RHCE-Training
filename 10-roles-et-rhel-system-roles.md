@@ -124,7 +124,7 @@ cat example-timesync-playbook
 Ce rôle configure les paramètres de SELinux.
 Exemple de Playbook utilisant selinux :
 ``` bash
-cat example-multiple-ntp-servers-playbook.yml
+cat example-selinux-playbook.yml
 ```
 ``` bash
 - name: Manage SELinux Booleans
