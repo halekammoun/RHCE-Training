@@ -247,7 +247,7 @@ vii. Don't mount the logical volume in any way.
       debug:
         msg: "Could not create logical volume of that size"
     - name: creating the logical volume of 800m
-      Lvol:
+      lvol:
         vg : research
         lv: data
         size: 800m
