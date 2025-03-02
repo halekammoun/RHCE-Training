@@ -118,14 +118,12 @@ e) format the partition with the ext4 filesystem if it is created
       - name: If there is not enough disk space
         debug:                            
           msg: "Could not create partition of that size"
-        when: "'sdb1' not in ansible_devices.sdb"
       - name: Creating the smaller partition
         parted:
           device: /dev/sdb
           number: 1
           part_end: 800MiB
           state: present
-        when: "'sdb1' not in ansible_devices.sdb"
     always:
       - name: Creating the ext4 filesystem
         filesystem:
