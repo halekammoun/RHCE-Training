@@ -174,7 +174,7 @@ ansible-doc lvol
       lvol:
         vg: vg_data  # Le groupe de volumes auquel appartient le LV
         lv: lv_data  # Nom du volume logique
-        size: 500M  # Taille du volume logique
+        size: 500m  # Taille du volume logique
 
 ```
 ### Formater le Volume Logique avec filesystem
