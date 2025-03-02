@@ -246,17 +246,15 @@ vii. Don't mount the logical volume in any way.
     - name: if the requested logical volume size cannot be cretaed
       debug:
         msg: "Could not create logical volume of that size"
-      when: "'research' in ansible_lvm.vgs"
     - name: creating the logical volume of 800m
       Lvol:
         vg : research
         lv: data
         size: 800m
-      when: "'research' in ansible_lvm.vgs"
     always:
     - name: format filesystem
       filesystem:
         fstype: ext4
         dev: /dev/research/data
-      when: "'research' in ansible_lvm.lvs"
+      when: "'research' in ansible_lvm.vgs"
 ```
