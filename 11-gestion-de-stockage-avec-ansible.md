@@ -28,6 +28,28 @@ ansible-doc parted
         part_end: 1GiB
 
 ```
+### Créer plus qu'une partition
+créer 2 partitions chacune a la taille 2G
+``` bash
+
+- hosts: all
+  become: true
+  tasks:
+  - name: Create a new primary partition with a size of 1g
+    parted:
+      device: /dev/sdb
+      number: 1
+        #part_start: 1MiB
+      state: present
+      part_end: 2GiB
+  - name: Create a new primary partition with a size of 1g
+    parted:
+      device: /dev/sdb
+      number: 2
+      part_start: 2GiB
+      state: present
+      part_end: 4GiB
+```
 ### Formater la Partition 
 Ensuite, nous formatons cette partition nouvellement créée en ext4 en utilisant le module `filesystem`.
 ``` bash
