@@ -256,5 +256,5 @@ vii. Don't mount the logical volume in any way.
       filesystem:
         fstype: ext4
         dev: /dev/research/data
-      when: "'research' in ansible_lvm.vgs"
+      when: "'data' in ansible_lvm.lvs"
 ```
