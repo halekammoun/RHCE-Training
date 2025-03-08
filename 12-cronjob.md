@@ -6,10 +6,9 @@
 Ansible fournit le module cron qui permet d'ajouter, de modifier ou de supprimer des tâches planifiées dans le fichier crontab d'un utilisateur.
 #### Exemple de création d'un cron job
 
-Le playbook suivant crée un cron job qui exécute la commande logger "EX294 in progress" toutes les 2 minutes sous l'utilisateur student.
-Utilisez le module `ansible.builtin.cron` pour créer le cronjob.
-#### Exercice
-Écrire une tâche Ansible qui crée un cronjob pour un utilisateur nommé student. Ce cronjob doit s'exécuter toutes les 2 minutes et exécuter la commande logger "EX294 in progress" pour ajouter le message "EX294 in progress" dans les logs du système.
+Le playbook suivant crée un cron job qui exécute la commande logger "EX294 in progress" toutes les 2 minutes sous l'utilisateur student.  
+Utilisez le module `ansible.builtin.cron` pour créer le cronjob.  
+Écrire une tâche Ansible qui crée un cronjob pour un utilisateur nommé student. Ce cronjob doit s'exécuter toutes les 2 minutes et exécuter la commande logger "EX294 in progress" pour ajouter le message "EX294 in progress" dans les logs du système.  
 ``` bash
 vim crontab.yml
 ```
