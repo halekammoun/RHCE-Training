@@ -319,8 +319,9 @@ ansible-galaxy collection install community.general
    - name: test
      uri:
        url: http://node1/webdev/ #do not forget the last / to avoid the 301 Moved permanently error
+```
+
 to see the content you should do
 ```bash
 ansible node1 -m command -a "curl http://node1/webdev/ "
-```
 ```
