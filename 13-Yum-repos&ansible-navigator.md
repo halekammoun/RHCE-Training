@@ -6,20 +6,24 @@
 
   
 ## Utilisation d'Ansible Navigator
-1. **Installer Ansible Navigator** :
+0. **installer ansible navigator pou tester**:
+  <p align="center">
+  <img src="images/navig.png" alt="cap" style="width: 600px;"/>
+</p>  
+2. **Installer Ansible Navigator dans l'exam** :
     Pour installer Ansible Navigator, utilisez la commande suivante :
     ```bash
     sudo yum install ansible-navigator
     ```
 
-2. **Connecter Podman (si nécessaire)** :
+3. **Connecter Podman (si nécessaire)** :
     Connectez-vous à votre registre Docker ou Podman si cela est requis pour la configuration:
     ```bash
     podman login registry.redhat.io
     username: ...
     password: ...
     ```
-3. **tapez cette commande pour la configuartion auto de navigator** :
+4. **tapez cette commande pour la configuartion auto de navigator** :
 ``` bash
 ansible-navigator
 ```
