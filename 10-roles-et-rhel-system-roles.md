@@ -90,11 +90,20 @@ vim apache.yml
 ``` bash
 yum install rhel-system-roles
 ```
+you can whether
 ``` bash
 
 sudo cp -r /usr/share/ansible/roles/* /home/ansible/roles1
 ```
-
+or add the path directly in the ansible.cfg
+``` bash
+[defaults]
+remote_user=ansible
+inventory=/home/ansible/inventory
+roles_path=/home/ansible/roles1:/home/ansible/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles
+[privilege_escalation]
+become=true
+```
 Cette commande télécharge et installe les rôles dans le répertoire des rôles d'Ansible (souvent ~/.ansible/roles ou un répertoire défini dans votre configuration).
 #### Documentation des Rôles
 La documentation des rôles rhel-system-roles se trouve généralement dans `/usr/share/doc/rhel-system-roles`. Vous pouvez explorer cette documentation pour obtenir des informations sur les `variables disponibles ` et les `configurations possibles` dans le fichier`README.md`.
