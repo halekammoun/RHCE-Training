@@ -10,7 +10,7 @@
 - l'extention de playbook peut être .yml ou .yaml.
 - Pour vérifier la syntaxe on fait
 ``` bash
- ansible-playbook --syntax-check
+ ansible-playbook nom-de-fichier.yml --syntax-check
  ```
 - Pour exécuter le playbook on fait
 ``` bash
