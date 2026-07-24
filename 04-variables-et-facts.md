@@ -105,7 +105,7 @@ Then edit the lines in the file to provide the real information of the hosts.
   tasks: 
   - name: get file to nodes
     get_url:
-      url: wget https://raw.githubusercontent.com/halekammoun/RHCE-Training/master/template 
+      url: https://raw.githubusercontent.com/halekammoun/RHCE-Training/master/template 
       dest: /home/ansible/report.txt
   - name: change hostname
     lineinfile:
